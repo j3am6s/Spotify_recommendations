@@ -1,6 +1,6 @@
 # Spotify ML Recommendation System
 
-Python machine learning project exploring how songs can be recommended using their audio characteristics, from nearest-neighbour search to sequential playlist generation. Developed by **Nàdia Pelegay-Royo and Manon Vu Huu**.
+Python machine learning project exploring how songs can be recommended using their audio characteristics, from nearest-neighbour search to sequential playlist generation. 
 
 ## Overview
 
@@ -61,17 +61,12 @@ python -m src.playlist_creation --tracks tracks.txt --name "My Recommendations"
 
 This requires authorization to modify private playlists. It creates a playlist on your account; check its contents before running. **Never upload your `.env` or token cache.** The original repository contained exposed credentials: rotate/revoke those credentials and clean the old Git history before publishing this version.
 
-## Potential applications
-
-- Discovering tracks with similar audio characteristics.
-- Generating playlists with specific feature preferences.
-- Exploring gradual musical transitions between songs.
 
 ## What I learnt
 
-- Practical experience with data preparation, feature representation, unsupervised neighbour search and exploratory supervised learning.
-- How a change in recommendation strategy can change the resulting listening experience, even with the same dataset and features.
-- Why a similarity metric does not necessarily measure subjective recommendation quality, and how API integration brings a notebook experiment closer to a usable application.
+- Practical experience with data preparation, feature representation, unsupervised neighbour search and exploratory supervised learning
+- How a change in recommendation strategy can change the resulting listening experience, even with the same dataset and features
+- Why a similarity metric does not necessarily measure subjective recommendation quality, and how API integration brings a notebook experiment closer to a usable application
 
 ## Limitations
 
@@ -84,4 +79,3 @@ This requires authorization to modify private playlists. It creates a playlist o
 
 - [Maharshi Pandya — Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
 - [Spotipy documentation](https://spotipy.readthedocs.io/)
-- Original project report and references: `docs/recap.pdf` and `notebooks/spotify_recommendation.ipynb`.
