@@ -4,7 +4,7 @@ Python machine learning project exploring how songs can be recommended using the
 
 ## Overview
 
-Rather than relying on listening history, we explore recommendations based on Spotify audio features. Using an existing tracks dataset, we compare similarity-based methods with exploratory supervised classification approaches, and connect the resulting track IDs to Spotify for optional playlist creation.
+Rather than relying on listening history and marketing pushes, we explore recommendations based on Spotify audio features. Using an existing tracks dataset, we compare similarity-based methods with exploratory supervised classification approaches, and connect the resulting track IDs to Spotify for optional playlist creation.
 
 ## How it works
 
