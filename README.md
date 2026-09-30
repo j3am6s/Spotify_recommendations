@@ -15,53 +15,6 @@ Rather than relying on listening history, we explore recommendations based on Sp
 5. **Other experiments:** investigate Logistic Regression and Random Forest using labels derived from a cosine-similarity threshold. These experiments are included in the notebook; because labels are derived from the same audio features, they should not be interpreted as independently validated listener-preference models.
 6. **Spotify integration:** optionally create a private playlist from the recommended track IDs using Spotipy and your own Spotify account.
 
-## Repository contents
-
-```text
-src/
-  recommender.py          # Runnable kNN, flow and similarity methods
-  playlist_creation.py    # Optional authenticated playlist export
-notebooks/
-  spotify_recommendation.ipynb  # Cleaned original project write-up and experiments
-docs/
-  presentation.pdf        # Original presentation
-  recap.pdf               # Original recap
-requirements.txt
-.env.example
-.gitignore
-```
-
-## Run locally
-
-Install Python 3.10+ and, from the repository root:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate            # Windows: .venv\\Scripts\\activate
-pip install -r requirements.txt
-```
-
-Download the dataset linked above and put its `dataset.csv` at `data/dataset.csv` (data is intentionally not committed). Choose an existing `track_id` from that dataset:
-
-```bash
-python -m src.recommender --data data/dataset.csv --track-id YOUR_TRACK_ID --method knn --n 10 --save-ids tracks.txt
-# Or build a non-repeating sequence:
-python -m src.recommender --data data/dataset.csv --track-id YOUR_TRACK_ID --method flow --n 10 --save-ids tracks.txt
-```
-
-For filtered kNN suggestions you can add `--genre pop`, `--min-popularity 70`, or `--artist "ARTIST NAME"`. For the full exploratory comparisons, open `notebooks/spotify_recommendation.ipynb`. Notebook outputs and credential-dependent cells were cleared for public sharing; the notebook is an archived research narrative, not a guaranteed top-to-bottom standalone run.
-
-### Optional Spotify playlist export
-
-Create your own Spotify developer application and set its redirect URI to the value in `.env.example`. Copy `.env.example` to `.env` and fill in **your own newly generated credentials**. Then run:
-
-```bash
-python -m src.playlist_creation --tracks tracks.txt --name "My Recommendations"
-```
-
-This requires authorization to modify private playlists. It creates a playlist on your account; check its contents before running. **Never upload your `.env` or token cache.** The original repository contained exposed credentials: rotate/revoke those credentials and clean the old Git history before publishing this version.
-
-
 ## What I learnt
 
 - Practical experience with data preparation, feature representation, unsupervised neighbour search and exploratory supervised learning
@@ -70,10 +23,10 @@ This requires authorization to modify private playlists. It creates a playlist o
 
 ## Limitations
 
-- This dataset is a historical snapshot and does not cover the entire current Spotify catalogue; some track IDs may no longer resolve.
-- The system uses audio features rather than user feedback or listening history, and its numerical similarity scores do not establish listener satisfaction.
-- The source notebook's classifier experiments generate labels from feature similarity itself, so their outputs are exploratory rather than independent predictive validation.
-- The sequential method greedily selects the nearest next song; it does not optimise the quality of the whole playlist.
+- This dataset is a historical snapshot and does not cover the entire current Spotify catalogue; some track IDs may no longer resolve
+- The system uses audio features rather than user feedback or listening history, and its numerical similarity scores do not establish listener satisfaction
+- The source notebook's classifier experiments generate labels from feature similarity itself, so their outputs are exploratory rather than independent predictive validation
+- The sequential method greedily selects the nearest next song; it does not optimise the quality of the whole playlist
 
 ## References
 
